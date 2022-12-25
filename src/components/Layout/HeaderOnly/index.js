@@ -1,4 +1,4 @@
-import Header from './Header/index';
+import Header from './../components/Header/index';
 
 function DefaultLayout({ children }) {
     return (
