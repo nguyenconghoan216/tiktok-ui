@@ -24,7 +24,7 @@ function Search() {
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debouncedValue.trim()) {
+        if (!searchValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -39,6 +39,7 @@ function Search() {
         };
 
         fetchApi();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedValue]);
 
     const handleClear = () => {
@@ -59,12 +60,14 @@ function Search() {
     };
 
     return (
-        // Using a wrapper <div> tag around the reference element solves
+        // Using a wrapper <> tag around the reference element solves
         // this by creating a new parentNode context.
+
         <div>
             <HeadlessTippy
                 interactive
                 visible={showResult && searchResult.length > 0}
+                // visible
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
